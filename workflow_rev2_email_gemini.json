@@ -1,0 +1,256 @@
+{
+  "name": "TTS Rev2 - Email + Gemini + Audio Final",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "mailbox": "INBOX",
+        "postProcessAction": "read",
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "email_trigger",
+      "name": "Email Trigger",
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "credentials": {
+        "imap": {
+          "id": "1",
+          "name": "Gmail IMAP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const subject = $input.item.json.subject || '';\nconst body = $input.item.json.text || $input.item.json.textPlain || '';\n\n// Extract user prompt from email\nlet userPrompt = body.trim();\n\n// If subject starts with [TTS] or [STORY], use body as prompt\nif (subject.toLowerCase().includes('[tts]') || subject.toLowerCase().includes('[story]')) {\n  userPrompt = body.trim();\n} else {\n  // Otherwise use subject as prompt\n  userPrompt = subject.trim();\n}\n\n// Remove common email signatures and footers\nuserPrompt = userPrompt.split('\\n\\n')[0]; // Take first paragraph\nuserPrompt = userPrompt.replace(/^(Re:|Fwd:)\\s*/i, ''); // Remove Re:/Fwd:\n\nreturn {\n  json: {\n    user_prompt: userPrompt,\n    original_subject: subject,\n    email_from: $input.item.json.from?.text || 'unknown',\n    email_id: $input.item.json.messageId || Date.now().toString()\n  }\n};"
+      },
+      "id": "extract_prompt",
+      "name": "Extract Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  contents: [{\n    parts: [{\n      text: `Você é um roteirista especializado em criar histórias de terror para shorts (YouTube/TikTok/Reels).\\n\\nCONTEXTO:\\n- Duração total: ~45 segundos (pode variar entre 30-60s conforme a história)\\n- Formato: Áudio narrado com diferentes emoções e vozes\\n- Público: Fãs de histórias de terror curtas e envolventes\\n\\nINPUT DO USUÁRIO:\\n${$json.user_prompt}\\n\\nINSTRUÇÕES:\\n1. Expanda o prompt em uma narrativa COMPLETA e ENVOLVENTE\\n2. Adicione:\\n   - Ambientação sensorial (sons, cheiros, sensações)\\n   - Detalhes que criam suspense\\n   - Build-up gradual de tensão\\n   - Twist ou clímax impactante\\n3. Divida em 3-8 segmentos (conforme necessário)\\n4. Cada segmento: 5-10 segundos de narração (~15-30 palavras)\\n5. Varie o ritmo: abertura → tensão → clímax → desfecho\\n\\nVOZES DISPONÍVEIS:\\n- \\\"Morgan_Freeman CC3.wav\\\" - Narrador profundo, calmo\\n- \\\"Freddy Krueger CC3.wav\\\" - Voz sinistra, ameaçadora\\n- \\\"HAL 9000 CC3.wav\\\" - Voz fria, robótica\\n\\nEMOÇÕES (valores 0-1.2):\\nHappy, Angry, Sad, Surprised, Afraid, Disgusted, Calm, Melancholic\\n\\nOUTPUT (JSON puro, sem markdown):\\n{\\n  \\\"title\\\": \\\"Título impactante\\\",\\n  \\\"genre\\\": \\\"terror\\\",\\n  \\\"total_duration_estimate\\\": \\\"45s\\\",\\n  \\\"batch_id\\\": \\\"slug_da_historia\\\",\\n  \\\"segments\\\": [\\n    {\\n      \\\"segment_number\\\": 1,\\n      \\\"scene_type\\\": \\\"opening\\\",\\n      \\\"text\\\": \\\"Texto narrado aqui...\\\",\\n      \\\"voice\\\": \\\"Morgan_Freeman CC3.wav\\\",\\n      \\\"emotions\\\": {\\\"Calm\\\": 0.6, \\\"Melancholic\\\": 0.8},\\n      \\\"duration_estimate\\\": \\\"8s\\\"\\n    }\\n  ]\\n}\\n\\nRetorne APENAS o JSON, sem explicações.`\n    }]\n  }],\n  generationConfig: {\n    temperature: 0.9,\n    topK: 40,\n    topP: 0.95,\n    maxOutputTokens: 2048\n  }\n}) }}",
+        "options": {}
+      },
+      "id": "gemini_api",
+      "name": "Gemini API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [650, 300],
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "2",
+          "name": "Gemini API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.item.json;\n\nlet storyJson;\ntry {\n  // Extract JSON from Gemini response\n  const content = response.candidates[0].content.parts[0].text;\n  \n  // Remove markdown code blocks if present\n  let jsonText = content.replace(/```json\\n?/g, '').replace(/```\\n?/g, '').trim();\n  \n  storyJson = JSON.parse(jsonText);\n} catch (error) {\n  throw new Error(`Failed to parse Gemini response: ${error.message}`);\n}\n\n// Validate required fields\nif (!storyJson.segments || !Array.isArray(storyJson.segments)) {\n  throw new Error('Invalid story format: missing segments array');\n}\n\n// Add metadata from email\nconst emailData = $('Extract Prompt').item.json;\nstoryJson.email_from = emailData.email_from;\nstoryJson.email_id = emailData.email_id;\nstoryJson.created_at = new Date().toISOString();\n\nreturn {\n  json: storyJson\n};"
+      },
+      "id": "parse_gemini",
+      "name": "Parse Gemini Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.item.json;\n\nconst scenes = input.segments;\nconst batchId = input.batch_id || 'story';\nconst defaultVoice = 'Morgan_Freeman CC3.wav';\n\nreturn scenes.map((s, i) => ({\n  json: {\n    batch_id: batchId,\n    story_title: input.title,\n    voice: s.voice || defaultVoice,\n    scene_number: String(s.segment_number || i+1).padStart(2, '0'),\n    scene_type: s.scene_type || `scene_${i+1}`,\n    text: s.text,\n    emotion_profile: s.emotions || {},\n    filename_prefix: `${batchId}_${String(s.segment_number || i+1).padStart(2, '0')}_${s.scene_type || 'scene'}`,\n    total_segments: scenes.length,\n    segment_index: i\n  }\n}));"
+      },
+      "id": "split_scenes",
+      "name": "Split Scenes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "loop",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const d = $input.item.json;\nreturn {\n  json: {\n    ...d,\n    request_body: {\n      prompt: JSON.stringify({\n        \"47\": {\n          \"inputs\": {\n            \"TTS_engine\": [\"123\", 0],\n            \"opt_narrator\": [\"51\", 0],\n            \"text\": d.text,\n            \"seed\": Math.floor(Math.random() * 999999999),\n            \"enable_chunking\": true,\n            \"max_chars_per_chunk\": 400,\n            \"chunk_combination_method\": \"auto\",\n            \"silence_between_chunks_ms\": 100,\n            \"enable_audio_cache\": true,\n            \"batch_size\": 0\n          },\n          \"class_type\": \"UnifiedTTSTextNode\"\n        },\n        \"51\": {\n          \"inputs\": {\"voice_name\": d.voice, \"reference_text\": \"\"},\n          \"class_type\": \"CharacterVoicesNode\"\n        },\n        \"123\": {\n          \"inputs\": {\"emotion_control\": [\"125\", 0]},\n          \"class_type\": \"IndexTTSEngineNode\"\n        },\n        \"125\": {\n          \"inputs\": {\n            \"Happy\": Math.min(1.2, Math.max(0, d.emotion_profile.Happy || 0)),\n            \"Angry\": Math.min(1.2, Math.max(0, d.emotion_profile.Angry || 0)),\n            \"Sad\": Math.min(1.2, Math.max(0, d.emotion_profile.Sad || 0)),\n            \"Surprised\": Math.min(1.2, Math.max(0, d.emotion_profile.Surprised || 0)),\n            \"Afraid\": Math.min(1.2, Math.max(0, d.emotion_profile.Afraid || 0)),\n            \"Disgusted\": Math.min(1.2, Math.max(0, d.emotion_profile.Disgusted || 0)),\n            \"Calm\": Math.min(1.2, Math.max(0, d.emotion_profile.Calm || 0)),\n            \"Melancholic\": Math.min(1.2, Math.max(0, d.emotion_profile.Melancholic || 0))\n          },\n          \"class_type\": \"IndexTTSEmotionOptionsNode\"\n        },\n        \"SaveAudio\": {\n          \"inputs\": {\"audio\": [\"47\", 0], \"filename_prefix\": d.filename_prefix},\n          \"class_type\": \"SaveAudio\"\n        }\n      }),\n      client_id: `n8n_${d.batch_id}_${d.scene_number}`\n    }\n  }\n};"
+      },
+      "id": "build",
+      "name": "Build TTS Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8001/prompt",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.request_body) }}",
+        "options": {}
+      },
+      "id": "execute",
+      "name": "Execute TTS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1650, 300]
+    },
+    {
+      "parameters": {
+        "amount": 12,
+        "unit": "seconds"
+      },
+      "id": "wait",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [1850, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'http://host.docker.internal:8001/history/' + $json.prompt_id }}",
+        "options": {}
+      },
+      "id": "history",
+      "name": "Get History",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2050, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const historyResponse = $input.item.json;\nconst promptId = $('Execute TTS').item.json.prompt_id;\nconst promptData = historyResponse[promptId];\n\nif (!promptData?.outputs?.SaveAudio?.audio?.[0]) {\n  throw new Error(`No audio for ${promptId}`);\n}\n\nconst audioFile = promptData.outputs.SaveAudio.audio[0];\nconst buildData = $('Build TTS Request').item.json;\n\nreturn {\n  json: {\n    batch_id: buildData.batch_id,\n    story_title: buildData.story_title,\n    segment_index: buildData.segment_index,\n    scene_number: buildData.scene_number,\n    scene_type: buildData.scene_type,\n    voice: buildData.voice,\n    text: buildData.text,\n    filename: audioFile.filename,\n    subfolder: audioFile.subfolder,\n    status: promptData.status.status_str,\n    total_segments: buildData.total_segments\n  }\n};"
+      },
+      "id": "extract",
+      "name": "Extract Audio Info",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const all = $input.all();\nconst successful = all.filter(i => i.json.status === 'success');\n\nif (successful.length === 0) {\n  throw new Error('No successful audio segments generated');\n}\n\nconst batchId = all[0].json.batch_id;\nconst storyTitle = all[0].json.story_title;\n\n// Sort by segment_index to ensure correct order\nconst sortedAudios = successful.sort((a, b) => \n  a.json.segment_index - b.json.segment_index\n);\n\nreturn {\n  json: {\n    batch_id: batchId,\n    story_title: storyTitle,\n    total_segments: all.length,\n    successful_segments: successful.length,\n    failed_segments: all.length - successful.length,\n    audio_files: sortedAudios.map(i => ({\n      index: i.json.segment_index,\n      scene: i.json.scene_number,\n      filename: i.json.filename,\n      subfolder: i.json.subfolder || 'output'\n    })),\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "aggregate",
+      "name": "Aggregate Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 500]
+    },
+    {
+      "parameters": {
+        "command": "={{ \nconst data = $json;\nconst batchId = data.batch_id;\nconst audioFiles = data.audio_files;\n\n// Build FFmpeg concat file content\nconst concatFileContent = audioFiles.map(f => \n  `file 'ComfyUI/output/${f.filename}'`\n).join('\\\\n');\n\n// Write concat file\nconst concatFilePath = `E:/api_tts/temp_concat_${batchId}.txt`;\nconst writeCmd = `echo \"${concatFileContent}\" > \"${concatFilePath}\"`;\n\n// FFmpeg command to concatenate with 500ms silence between segments\nconst outputFile = `E:/api_tts/final_audio/${batchId}_final.wav`;\nconst ffmpegCmd = `ffmpeg -f concat -safe 0 -i \"${concatFilePath}\" -af \"apad=pad_dur=0.5\" \"${outputFile}\"`;\n\n// Return combined command\n`${writeCmd} && ${ffmpegCmd} && del \"${concatFilePath}\"`\n}}",
+        "options": {}
+      },
+      "id": "concat_audio",
+      "name": "Concatenate Audio",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1650, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.item.json;\nconst aggregateData = $('Aggregate Results').item.json;\n\nreturn {\n  json: {\n    ...aggregateData,\n    final_audio_path: `E:/api_tts/final_audio/${aggregateData.batch_id}_final.wav`,\n    final_audio_url: `http://localhost:8001/final/${aggregateData.batch_id}_final.wav`,\n    status: 'completed',\n    message: `História \"${aggregateData.story_title}\" gerada com sucesso! ${aggregateData.successful_segments}/${aggregateData.total_segments} segmentos.`\n  }\n};"
+      },
+      "id": "final_result",
+      "name": "Final Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1850, 500]
+    },
+    {
+      "parameters": {
+        "fromEmail": "noreply@tts-automation.local",
+        "toEmail": "={{ $('Extract Prompt').item.json.email_from }}",
+        "subject": "={{ '✅ História TTS Pronta: ' + $json.story_title }}",
+        "emailType": "html",
+        "message": "={{ \nconst d = $json;\n`<h2>Sua história foi gerada com sucesso!</h2>\n<p><strong>Título:</strong> ${d.story_title}</p>\n<p><strong>Duração estimada:</strong> ~${d.total_segments * 7}s</p>\n<p><strong>Segmentos:</strong> ${d.successful_segments}/${d.total_segments}</p>\n<p><strong>Download:</strong> <a href=\"${d.final_audio_url}\">Clique aqui</a></p>\n<hr>\n<p><small>Gerado automaticamente em ${new Date(d.timestamp).toLocaleString('pt-BR')}</small></p>`\n}}",
+        "options": {}
+      },
+      "id": "send_email",
+      "name": "Send Email Notification",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [2050, 500],
+      "credentials": {
+        "smtp": {
+          "id": "3",
+          "name": "Gmail SMTP"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Email Trigger": {
+      "main": [[{"node": "Extract Prompt"}]]
+    },
+    "Extract Prompt": {
+      "main": [[{"node": "Gemini API"}]]
+    },
+    "Gemini API": {
+      "main": [[{"node": "Parse Gemini Response"}]]
+    },
+    "Parse Gemini Response": {
+      "main": [[{"node": "Split Scenes"}]]
+    },
+    "Split Scenes": {
+      "main": [[{"node": "Loop Over Items"}]]
+    },
+    "Loop Over Items": {
+      "main": [
+        [{"node": "Build TTS Request"}],
+        [{"node": "Aggregate Results"}]
+      ]
+    },
+    "Build TTS Request": {
+      "main": [[{"node": "Execute TTS"}]]
+    },
+    "Execute TTS": {
+      "main": [[{"node": "Wait"}]]
+    },
+    "Wait": {
+      "main": [[{"node": "Get History"}]]
+    },
+    "Get History": {
+      "main": [[{"node": "Extract Audio Info"}]]
+    },
+    "Extract Audio Info": {
+      "main": [[{"node": "Loop Over Items"}]]
+    },
+    "Aggregate Results": {
+      "main": [[{"node": "Concatenate Audio"}]]
+    },
+    "Concatenate Audio": {
+      "main": [[{"node": "Final Result"}]]
+    },
+    "Final Result": {
+      "main": [[{"node": "Send Email Notification"}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

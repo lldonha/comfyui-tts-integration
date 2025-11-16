@@ -1,0 +1,75 @@
+{
+  "title": "O Espelho Maldito",
+  "genre": "terror",
+  "total_duration_estimate": "42s",
+  "batch_id": "espelho_maldito",
+  "total_segments": 6,
+  "segments": [
+    {
+      "segment_number": 1,
+      "scene_type": "opening",
+      "text": "Ana comprou um espelho antigo em um brechó. Era lindo, com moldura dourada. Mas tinha algo estranho nele.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Calm": 0.7,
+        "Melancholic": 0.4
+      },
+      "duration_estimate": "8s"
+    },
+    {
+      "segment_number": 2,
+      "scene_type": "buildup",
+      "text": "Ao chegar em casa, ela o pendurou no quarto. Naquela noite, acordou com um barulho. O espelho estava tremendo.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.4,
+        "Surprised": 0.5
+      },
+      "duration_estimate": "9s"
+    },
+    {
+      "segment_number": 3,
+      "scene_type": "tension",
+      "text": "Ela se aproximou devagar. Seu reflexo estava lá, mas... piscava quando ela não piscava. Sorria quando ela não sorria.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.8,
+        "Surprised": 0.7
+      },
+      "duration_estimate": "8s"
+    },
+    {
+      "segment_number": 4,
+      "scene_type": "climax",
+      "text": "O reflexo levantou a mão. Tocou o vidro por dentro. E sussurrou: 'Finalmente... alguém me libertou.'",
+      "voice": "Freddy Krueger CC3.wav",
+      "emotions": {
+        "Angry": 0.9,
+        "Disgusted": 0.6
+      },
+      "duration_estimate": "7s"
+    },
+    {
+      "segment_number": 5,
+      "scene_type": "twist",
+      "text": "Ana tentou fugir, mas suas pernas não se moviam. Ela olhou para baixo. Estava dentro do espelho. Do outro lado, seu reflexo sorria.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 1.2,
+        "Surprised": 1.1
+      },
+      "duration_estimate": "10s"
+    },
+    {
+      "segment_number": 6,
+      "scene_type": "ending",
+      "text": "Agora ela vive presa no espelho. E o reflexo vive sua vida. Cuidado com espelhos antigos... você nunca sabe quem está do outro lado.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Melancholic": 1.0,
+        "Calm": 0.3
+      },
+      "duration_estimate": "12s"
+    }
+  ]
+}
