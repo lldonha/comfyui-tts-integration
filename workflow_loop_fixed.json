@@ -1,0 +1,120 @@
+{
+  "name": "TTS Loop Fixed",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual",
+      "name": "Manual",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.item.json;\n\nlet scenes = [];\nlet batchId = '';\nlet defaultVoice = '';\n\nif (input.scenes) {\n  scenes = input.scenes;\n  batchId = input.batch_id || 'batch';\n  defaultVoice = input.voice || 'Morgan_Freeman CC3.wav';\n} else if (input.test_cases) {\n  const tc = input.test_cases[0];\n  scenes = tc.segments.map((s, i) => ({\n    scene_type: `scene_${i+1}`,\n    text: s.text,\n    voice: s.voice,\n    emotion_profile: s.emotions\n  }));\n  batchId = tc.name.replace(/[^a-z0-9]/gi, '_').toLowerCase();\n  defaultVoice = scenes[0]?.voice || 'Morgan_Freeman CC3.wav';\n}\n\nreturn scenes.map((s, i) => ({\n  json: {\n    batch_id: batchId,\n    voice: s.voice || defaultVoice,\n    scene_number: String(i+1).padStart(2, '0'),\n    scene_type: s.scene_type,\n    text: s.text,\n    emotion_profile: s.emotion_profile,\n    filename_prefix: `${batchId}_${String(i+1).padStart(2, '0')}_${s.scene_type}`\n  }\n}));"
+      },
+      "id": "split",
+      "name": "Split Scenes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "loop",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const d = $input.item.json;\nreturn {\n  json: {\n    ...d,\n    request_body: {\n      prompt: JSON.stringify({\n        \"47\": {\n          \"inputs\": {\n            \"TTS_engine\": [\"123\", 0],\n            \"opt_narrator\": [\"51\", 0],\n            \"text\": d.text,\n            \"seed\": Math.floor(Math.random() * 999999999),\n            \"enable_chunking\": true,\n            \"max_chars_per_chunk\": 400,\n            \"chunk_combination_method\": \"auto\",\n            \"silence_between_chunks_ms\": 100,\n            \"enable_audio_cache\": true,\n            \"batch_size\": 0\n          },\n          \"class_type\": \"UnifiedTTSTextNode\"\n        },\n        \"51\": {\n          \"inputs\": {\"voice_name\": d.voice, \"reference_text\": \"\"},\n          \"class_type\": \"CharacterVoicesNode\"\n        },\n        \"123\": {\n          \"inputs\": {\"emotion_control\": [\"125\", 0]},\n          \"class_type\": \"IndexTTSEngineNode\"\n        },\n        \"125\": {\n          \"inputs\": {\n            \"Happy\": Math.min(1.2, Math.max(0, d.emotion_profile.Happy || 0)),\n            \"Angry\": Math.min(1.2, Math.max(0, d.emotion_profile.Angry || 0)),\n            \"Sad\": Math.min(1.2, Math.max(0, d.emotion_profile.Sad || 0)),\n            \"Surprised\": Math.min(1.2, Math.max(0, d.emotion_profile.Surprised || 0)),\n            \"Afraid\": Math.min(1.2, Math.max(0, d.emotion_profile.Afraid || 0)),\n            \"Disgusted\": Math.min(1.2, Math.max(0, d.emotion_profile.Disgusted || 0)),\n            \"Calm\": Math.min(1.2, Math.max(0, d.emotion_profile.Calm || 0)),\n            \"Melancholic\": Math.min(1.2, Math.max(0, d.emotion_profile.Melancholic || 0))\n          },\n          \"class_type\": \"IndexTTSEmotionOptionsNode\"\n        },\n        \"SaveAudio\": {\n          \"inputs\": {\"audio\": [\"47\", 0], \"filename_prefix\": d.filename_prefix},\n          \"class_type\": \"SaveAudio\"\n        }\n      }),\n      client_id: `n8n_${d.batch_id}_${d.scene_number}`\n    }\n  }\n};"
+      },
+      "id": "build",
+      "name": "Build",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8001/prompt",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.request_body) }}",
+        "options": {}
+      },
+      "id": "execute",
+      "name": "Execute",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "amount": 12,
+        "unit": "seconds"
+      },
+      "id": "wait",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'http://host.docker.internal:8001/history/' + $json.prompt_id }}",
+        "options": {}
+      },
+      "id": "history",
+      "name": "History",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const historyResponse = $input.item.json;\nconst promptId = $('Execute').item.json.prompt_id;\nconst promptData = historyResponse[promptId];\n\nif (!promptData?.outputs?.SaveAudio?.audio?.[0]) {\n  throw new Error(`No audio for ${promptId}`);\n}\n\nconst audioFile = promptData.outputs.SaveAudio.audio[0];\nconst buildData = $('Build').item.json;\n\nreturn {\n  json: {\n    batch: buildData.batch_id,\n    scene: buildData.scene_number,\n    type: buildData.scene_type,\n    voice: buildData.voice,\n    text: buildData.text.substring(0, 60) + '...',\n    filename: audioFile.filename,\n    url: `http://localhost:8001/view?filename=${audioFile.filename}&type=output`,\n    status: promptData.status.status_str\n  }\n};"
+      },
+      "id": "extract",
+      "name": "Extract",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const all = $input.all();\nconst successful = all.filter(i => i.json.status === 'success');\n\nreturn {\n  json: {\n    batch_id: all[0].json.batch,\n    total_scenes: all.length,\n    successful: successful.length,\n    failed: all.length - successful.length,\n    success_rate: `${((successful.length / all.length) * 100).toFixed(1)}%`,\n    audio_files: all.map(i => ({\n      scene: i.json.scene,\n      type: i.json.type,\n      voice: i.json.voice,\n      text: i.json.text,\n      filename: i.json.filename,\n      download_url: i.json.url,\n      status: i.json.status\n    })),\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "report",
+      "name": "Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 500]
+    }
+  ],
+  "connections": {
+    "Manual": {"main": [[{"node": "Split Scenes"}]]},
+    "Split Scenes": {"main": [[{"node": "Loop Over Items"}]]},
+    "Loop Over Items": {
+      "main": [
+        [{"node": "Build"}],
+        [{"node": "Report"}]
+      ]
+    },
+    "Build": {"main": [[{"node": "Execute"}]]},
+    "Execute": {"main": [[{"node": "Wait"}]]},
+    "Wait": {"main": [[{"node": "History"}]]},
+    "History": {"main": [[{"node": "Extract"}]]},
+    "Extract": {"main": [[{"node": "Loop Over Items"}]]}
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

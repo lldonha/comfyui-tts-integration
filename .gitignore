@@ -1,3 +1,7 @@
+# Windows files
+nul
+*.tmp
+
 # Python
 __pycache__/
 *.py[cod]
