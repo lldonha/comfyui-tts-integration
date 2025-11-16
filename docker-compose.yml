@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # API Wrapper - Ponte entre n8n e ComfyUI
+  api_wrapper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: comfyui_wrapper
+    ports:
+      - "8001:8001"
+    environment:
+      - COMFYUI_HOST=host.docker.internal
+      - COMFYUI_PORT=8000
+      - WRAPPER_PORT=8001
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    networks:
+      - tts_network
+
+  # n8n - Workflow automation
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_USER:-admin}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD:-admin123}
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - WEBHOOK_URL=http://localhost:5678/
+    volumes:
+      - n8n_data:/home/node/.n8n
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    networks:
+      - tts_network
+
+volumes:
+  n8n_data:
+    driver: local
+
+networks:
+  tts_network:
+    driver: bridge

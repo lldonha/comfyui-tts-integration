@@ -1,0 +1,252 @@
+{
+  "test_cases": [
+    {
+      "name": "Horror Story - Multiple Emotions",
+      "description": "História de terror com diferentes emoções",
+      "segments": [
+        {
+          "text": "It was a dark and stormy night. The old mansion stood alone on the hill.",
+          "voice": "Morgan_Freeman CC3.wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 0,
+            "Sad": 0.3,
+            "Surprised": 0,
+            "Afraid": 0.2,
+            "Disgusted": 0,
+            "Calm": 0.5,
+            "Melancholic": 0.6
+          }
+        },
+        {
+          "text": "Suddenly, a blood-curdling scream pierced the silence!",
+          "voice": "Sophie_Anderson CC3.wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 1.5,
+            "Afraid": 1.8,
+            "Disgusted": 0.3,
+            "Calm": 0,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "The detective approached cautiously, his hand on his weapon.",
+          "voice": "Clint_Eastwood CC3 (enhanced2).wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 0.4,
+            "Sad": 0,
+            "Surprised": 0,
+            "Afraid": 0.3,
+            "Disgusted": 0,
+            "Calm": 0.7,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "What he found inside would haunt him forever.",
+          "voice": "David_Attenborough CC3.wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 0,
+            "Sad": 0.8,
+            "Surprised": 0.5,
+            "Afraid": 0.4,
+            "Disgusted": 0.6,
+            "Calm": 0,
+            "Melancholic": 1.2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Comedy Sketch - Happy Emotions",
+      "description": "Esquete de comédia com emoções alegres",
+      "segments": [
+        {
+          "text": "So I went to the store to buy some bread, right?",
+          "voice": "male/male_01.wav",
+          "emotions": {
+            "Happy": 1.2,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 0.3,
+            "Afraid": 0,
+            "Disgusted": 0,
+            "Calm": 0.5,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "And the cashier looks at me and says: 'That'll be 50 dollars!'",
+          "voice": "female/female_01.wav",
+          "emotions": {
+            "Happy": 0.5,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 1.5,
+            "Afraid": 0,
+            "Disgusted": 0,
+            "Calm": 0.3,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "FIFTY DOLLARS?! For BREAD?!",
+          "voice": "male/male_02.wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 1.5,
+            "Sad": 0,
+            "Surprised": 1.8,
+            "Afraid": 0,
+            "Disgusted": 0.5,
+            "Calm": 0,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "Turns out I grabbed the artisan gold-leaf bread by mistake!",
+          "voice": "female/female_02.wav",
+          "emotions": {
+            "Happy": 1.8,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 0.5,
+            "Afraid": 0,
+            "Disgusted": 0,
+            "Calm": 0.4,
+            "Melancholic": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Documentary Narration - Calm & Educational",
+      "description": "Narração de documentário com tom educativo",
+      "segments": [
+        {
+          "text": "In the vast expanse of the African savanna, life persists against all odds.",
+          "voice": "David_Attenborough CC3.wav",
+          "emotions": {
+            "Happy": 0.3,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 0,
+            "Afraid": 0,
+            "Disgusted": 0,
+            "Calm": 1.5,
+            "Melancholic": 0.2
+          }
+        },
+        {
+          "text": "The pride of lions rests in the shade, conserving energy for the hunt ahead.",
+          "voice": "David_Attenborough CC3.wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 0,
+            "Afraid": 0,
+            "Disgusted": 0,
+            "Calm": 1.8,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "But danger lurks nearby. A rival male approaches, ready to challenge for dominance.",
+          "voice": "David_Attenborough CC3.wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 0.4,
+            "Sad": 0,
+            "Surprised": 0.5,
+            "Afraid": 0.3,
+            "Disgusted": 0,
+            "Calm": 0.8,
+            "Melancholic": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Emotional Rollercoaster",
+      "description": "Teste de todas as emoções em sequência",
+      "segments": [
+        {
+          "text": "What a wonderful day! The sun is shining and birds are singing!",
+          "voice": "Sophie_Anderson CC3.wav",
+          "emotions": {
+            "Happy": 2.0,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 0,
+            "Afraid": 0,
+            "Disgusted": 0,
+            "Calm": 0.5,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "Oh no! I just received terrible news!",
+          "voice": "Sophie_Anderson CC3.wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 0,
+            "Sad": 1.8,
+            "Surprised": 1.2,
+            "Afraid": 0.5,
+            "Disgusted": 0,
+            "Calm": 0,
+            "Melancholic": 1.5
+          }
+        },
+        {
+          "text": "How DARE they do this to me! This is unacceptable!",
+          "voice": "Morgan_Freeman CC3.wav",
+          "emotions": {
+            "Happy": 0,
+            "Angry": 2.0,
+            "Sad": 0,
+            "Surprised": 0,
+            "Afraid": 0,
+            "Disgusted": 1.0,
+            "Calm": 0,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "Wait... I think I misread the message. It's actually good news!",
+          "voice": "Morgan_Freeman CC3.wav",
+          "emotions": {
+            "Happy": 0.8,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 1.8,
+            "Afraid": 0,
+            "Disgusted": 0,
+            "Calm": 0.3,
+            "Melancholic": 0
+          }
+        },
+        {
+          "text": "Ah, what a relief. Everything is going to be okay.",
+          "voice": "Morgan_Freeman CC3.wav",
+          "emotions": {
+            "Happy": 0.5,
+            "Angry": 0,
+            "Sad": 0,
+            "Surprised": 0,
+            "Afraid": 0,
+            "Disgusted": 0,
+            "Calm": 1.8,
+            "Melancholic": 0
+          }
+        }
+      ]
+    }
+  ]
+}
