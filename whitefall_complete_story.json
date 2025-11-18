@@ -1,0 +1,529 @@
+{
+  "title": "Whitefall - A História Completa",
+  "author": "C.K. Walker",
+  "genre": "suspense psicológico / terror atmosférico",
+  "estimated_duration": "45-60min",
+  "batch_id": "whitefall_complete",
+  "narrative_structure": {
+    "act_1": "Estabelecimento (segmentos 1-8): Kris deixa Mel, descobre gravidez, decide ir para Spokane",
+    "act_2": "Viagem (segmentos 9-20): Conhece personagens no ônibus, conflitos, chegada em Whitefall",
+    "act_3": "Isolamento (segmentos 21-35): Tempestade piora, recursos acabam, tensão entre grupos",
+    "act_4": "Desfecho (segmentos 36-40): [Continuação não fornecida no texto original]"
+  },
+  "voice_casting": {
+    "narrator_primary": "Morgan_Freeman CC3.wav",
+    "narrator_tense": "Morgan_Freeman CC3.wav com emoções intensas",
+    "antagonist_voice": "Freddy Krueger CC3.wav",
+    "institutional_voice": "HAL 9000 CC3.wav"
+  },
+  "emotion_heuristics": {
+    "opening": "Melancholic (0.8-1.0) + Sad (0.4-0.6) - Estabelecer tom nostálgico",
+    "conflict": "Angry (0.6-0.9) + Afraid (0.3-0.5) - Tensão emocional",
+    "discovery": "Surprised (0.7-1.0) + Happy (0.3-0.5) - Revelação da gravidez",
+    "journey": "Calm (0.6-0.8) + Melancholic (0.3-0.5) - Contemplação",
+    "danger": "Afraid (0.9-1.2) + Surprised (0.6-0.8) - Momentos de ameaça",
+    "isolation": "Afraid (0.7-1.0) + Melancholic (0.8-1.0) - Desesperança crescente",
+    "social_tension": "Angry (0.5-0.8) + Disgusted (0.4-0.6) - Conflitos entre grupos",
+    "despair": "Sad (1.0-1.2) + Afraid (0.8-1.0) - Momentos de desespero",
+    "reflection": "Calm (0.4-0.6) + Melancholic (0.9-1.2) - Introspecção profunda"
+  },
+  "segments": [
+    {
+      "segment_number": 1,
+      "scene_type": "opening",
+      "act": 1,
+      "text": "Você já olhou para trás no fim de uma briga com alguém que ama e pensou... como chegamos aqui? Foi há quase 30 anos, e eu não lembro como a discussão com Melody começou. Mas sempre vou lembrar como terminou: comigo fazendo as malas, e ela chorando no banheiro.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Melancholic": 1.0,
+        "Sad": 0.6,
+        "Calm": 0.3
+      },
+      "narrative_function": "Estabelecer tom retrospectivo e emocional",
+      "duration_estimate": "18s"
+    },
+    {
+      "segment_number": 2,
+      "scene_type": "backstory",
+      "act": 1,
+      "text": "Se eu tivesse que adivinhar, provavelmente foi sobre dinheiro. Estávamos nos nossos vinte e poucos anos. Nenhum de nós tinha muita família. Empregos de merda, apartamento de merda, vida de merda. Mas tínhamos um ao outro. Nos amávamos. Me disseram que isso seria suficiente mas, porra... não chegava nem perto de ser suficiente.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Sad": 0.8,
+        "Angry": 0.4,
+        "Melancholic": 0.9
+      },
+      "narrative_function": "Contextualizar a pobreza e o relacionamento",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 3,
+      "scene_type": "conflict",
+      "act": 1,
+      "text": "Três dias sem falar um com o outro. Nos evitando. Acho que nem estávamos mais bravos, apenas... cansados. Cansados demais para derrubar o muro dessa vez. E então recebi uma ligação da minha tia e tio em Washington. Venha para o Dia de Ação de Graças. Trabalhe com meus tios durante as festas. Eles precisavam de ajuda na fazenda de árvores.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Sad": 0.7,
+        "Melancholic": 0.8,
+        "Calm": 0.5
+      },
+      "narrative_function": "Ponto de virada - decisão de partir",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 4,
+      "scene_type": "decision",
+      "act": 1,
+      "text": "Eu nem pensei, só disse sim. Quando contei para Melody, pude ver que ela sabia o que eu realmente estava dizendo. Algo que minha tia e tio nem sabiam. Eu ia para Spokane para o Dia de Ação de Graças... e não voltaria depois. Melody não lutou contra isso. Ela apenas ficou entorpecida. Como eu.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Melancholic": 1.0,
+        "Sad": 0.9,
+        "Afraid": 0.3
+      },
+      "narrative_function": "Revelação da intenção de abandonar Mel",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 5,
+      "scene_type": "departure_prep",
+      "act": 1,
+      "text": "Gastei 42 dólares em uma passagem de ônibus de Buchanan para Spokane, o que me deixou com 22 dólares para comida na viagem de três dias. Deixar Mel... eu estava cansado só de pensar nisso. Meu coração parecia escaldante, a passagem só de ida no meu bolso pesada como aço, me puxando para baixo. Mas minhas malas estavam prontas e eu estava aqui no terminal.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Sad": 0.8,
+        "Melancholic": 1.1,
+        "Afraid": 0.4
+      },
+      "narrative_function": "Estabelecer a pobreza e o conflito interno",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 6,
+      "scene_type": "bus_station",
+      "act": 1,
+      "text": "A estação era uma merda, como a maioria das estações de ônibus. Sem celulares naquela época. Sem TVs. Apenas um punhado de humanidade descansando em cadeiras plásticas duras esperando seu número ser chamado. Dei uma tragada longa no meu Camel e peguei minha passagem, procurando o meu número.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Calm": 0.6,
+        "Melancholic": 0.7,
+        "Disgusted": 0.3
+      },
+      "narrative_function": "Ambientação da estação de ônibus",
+      "duration_estimate": "18s"
+    },
+    {
+      "segment_number": 7,
+      "scene_type": "internal_conflict",
+      "act": 1,
+      "text": "Olhei para o relógio na parede. Uma e dezoito. Meus olhos deslizaram para a porta involuntariamente. Eu queria sair dessa estação, voltar para casa com Mel. Encontrá-la e dizer que estava arrependido e que não ia a lugar nenhum. Mas um pedaço pequeno de mim, a parte teimosa, apenas me mantinha sentado ali. Já tínhamos feito essa dança de novo e de novo e de novo. Nunca funcionava. Amor era um luxo que os pobres não podiam pagar.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Melancholic": 1.2,
+        "Sad": 0.9,
+        "Afraid": 0.5
+      },
+      "narrative_function": "Conflito interno - tema central da história",
+      "duration_estimate": "25s"
+    },
+    {
+      "segment_number": 8,
+      "scene_type": "climax_act1",
+      "act": 1,
+      "text": "Estava esperando o que? A solução para nossos problemas entrando, fácil como torta? Um sinal? Coragem para partir e voltar para ela? Deus, eu queria isso. Eu DESEJAVA ter isso. Mel era tudo para mim. E não era suficiente.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Sad": 1.0,
+        "Melancholic": 1.2,
+        "Afraid": 0.6
+      },
+      "narrative_function": "Pico emocional antes da reviravolta",
+      "duration_estimate": "18s"
+    },
+    {
+      "segment_number": 9,
+      "scene_type": "twist",
+      "act": 1,
+      "text": "Estava prestes a embarcar quando a vi. Aquele cabelo castanho longo e encaracolado, rosto em formato de coração e olhos verdes selvagens. Melody estava correndo em direção ao ônibus. Tropecei em assentos e pernas na minha desesperança para sair do ônibus. Assim que desci, Mel estava lá, jogando os braços ao meu redor, seu corpo pequeno sacudido por grandes soluços.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Surprised": 1.2,
+        "Happy": 0.6,
+        "Afraid": 0.7
+      },
+      "narrative_function": "Primeira grande reviravolta - Mel aparece",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 10,
+      "scene_type": "revelation",
+      "act": 1,
+      "text": "Kris, me desculpa, me desculpa. Achei que tinha te perdido. Achei que você tinha ido embora e eu não conseguiria te contar. Ela soluçava. Contar o que, baby? Ela respirou fundo. Estou grávida, Kris.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Surprised": 1.2,
+        "Happy": 0.8,
+        "Afraid": 0.6
+      },
+      "narrative_function": "Revelação da gravidez - segundo turning point",
+      "duration_estimate": "16s"
+    },
+    {
+      "segment_number": 11,
+      "scene_type": "decision_point",
+      "act": 1,
+      "text": "Minha mão congelou no cabelo dela por alguns segundos. Grávida. Mel estava grávida. Meu sinal da porta. Meu bebê. Minha garota. Eu era um idiota. Nunca poderia desistir de Mel e até tentar provou o quanto eu era tolo. Ela era minha. ELES eram meus.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Happy": 0.9,
+        "Surprised": 0.8,
+        "Melancholic": 0.4
+      },
+      "narrative_function": "Epifania emocional de Kris",
+      "duration_estimate": "18s"
+    },
+    {
+      "segment_number": 12,
+      "scene_type": "new_plan",
+      "act": 1,
+      "text": "Mas Mel me convenceu a ir. Eu não quero criar nosso bebê aqui, ela disse. Não aqui em Buchanan. Buchanan era a prisão, a pobreza eram as grades. Três semanas, eu prometi. Você estará em Spokane em no máximo três semanas ou eu volto. Tudo vai ficar bem. Porque eu ia garantir que ficasse. E NADA ia me impedir de cuidar da minha garota.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Happy": 0.7,
+        "Melancholic": 0.6,
+        "Calm": 0.8
+      },
+      "narrative_function": "Novo plano - esperança renovada",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 13,
+      "scene_type": "journey_begins",
+      "act": 2,
+      "text": "O ônibus começou a se afastar da estação. Mel acenou para mim. Ainda estava chorando, mas parecia em paz. Porque ela acreditava em mim. Íamos garantir que tudo ficasse bem. Assisti ela até virarmos na 19th Street. Não estava deixando ela para trás. Éramos uma equipe.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Melancholic": 0.8,
+        "Happy": 0.5,
+        "Calm": 0.7
+      },
+      "narrative_function": "Despedida - início da jornada",
+      "duration_estimate": "18s"
+    },
+    {
+      "segment_number": 14,
+      "scene_type": "conflict_intro",
+      "act": 2,
+      "text": "Estávamos 11 minutos atrasados, sabem. A voz veio de trás. Era o Viajante Cansado, sentado em sua cadeira e olhando por cima dela. Ele tinha que ter uns 60 anos. Cabelo interessante de marrom e cinza, roupas gritando trabalhador braçal. Tenho uma conexão para fazer, disse ele. É melhor que eu não perca por sua causa.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Angry": 0.5,
+        "Disgusted": 0.4,
+        "Calm": 0.3
+      },
+      "narrative_function": "Introdução de Mack - conflito inicial",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 15,
+      "scene_type": "character_intro",
+      "act": 2,
+      "text": "Ao longo da viagem, conheci outros passageiros. A Fugitiva - uma garota nervosa que claramente estava fugindo de alguém. O Artista Esguio que desenhava montanhas para sua namorada. E o Viajante Cansado que eu viria a conhecer como Mack. Todos indo para o mesmo lugar que eu. Todos presos nessa jornada juntos.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Calm": 0.7,
+        "Melancholic": 0.5
+      },
+      "narrative_function": "Introdução dos personagens secundários",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 16,
+      "scene_type": "bonding",
+      "act": 2,
+      "text": "Dei meu último maço de cigarros para a Fugitiva. Acabei de descobrir que vou ser pai em tipo... 8 meses. Quero parar de qualquer jeito, disse a ela. Ela me deu M&Ms de peanut. Dividimos comida. Mack compartilhou seu jerky. Dillon me mostrou seus desenhos. A Fugitiva, que se chamava Gracie, começou a sorrir. Éramos estranhos virando... algo mais.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Happy": 0.6,
+        "Calm": 0.8,
+        "Melancholic": 0.3
+      },
+      "narrative_function": "Desenvolvimento de camaradagem",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 17,
+      "scene_type": "danger",
+      "act": 2,
+      "text": "Então Scraggle entrou no ônibus. Esfarrapado, nervoso, coçando, possivelmente chapado de algo. Fedorento. E seus olhos se fixaram em Gracie. Era claro como o dia o que ele estava procurando. Mack sentou ao lado dela. Eu fiquei de guarda. Dillon também. Protegeríamos ela.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.7,
+        "Angry": 0.6,
+        "Disgusted": 0.8
+      },
+      "narrative_function": "Introdução da ameaça - Scraggle",
+      "duration_estimate": "18s"
+    },
+    {
+      "segment_number": 18,
+      "scene_type": "confrontation",
+      "act": 2,
+      "text": "Não toque em mim! Gracie gritou quando Scraggle tentou tocá-la enquanto dormia. Mack estava na cara dele. Você não toca em mulheres sem permissão. Scraggle riu e ficou violento. Bateu em Dillon. Chutou Mack. Até que eu o agarrei pela camisa e o arrastei pelo corredor. Você está saindo do ônibus, eu disse.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Angry": 1.0,
+        "Afraid": 0.5,
+        "Disgusted": 0.7
+      },
+      "narrative_function": "Confronto físico - Kris como protetor",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 19,
+      "scene_type": "transition",
+      "act": 2,
+      "text": "Depois disso, éramos mais do que estranhos. Mack, Dillon, Gracie e eu. Éramos um grupo. Uma equipe. Trocamos nomes reais. Compartilhamos histórias. Mack ia para Post Falls ver alguém importante. Dillon ia para Casper encontrar Sarah. Gracie ia para Billings começar de novo. E eu ia para Spokane construir um futuro para minha família.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Calm": 0.8,
+        "Happy": 0.6,
+        "Melancholic": 0.4
+      },
+      "narrative_function": "Solidificação do grupo",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 20,
+      "scene_type": "arrival",
+      "act": 2,
+      "text": "A neve começou logo depois que cruzamos a fronteira de Dakota do Norte. Primeiro flocos suaves, depois uma rajada, e finalmente um branco total. Eu não tinha ideia de como o motorista conseguia ver através disso. E foi assim que chegamos em Whitefall. No meio de uma nevasca. No meio do nada. Sem saber que nunca sairíamos.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.8,
+        "Melancholic": 0.9,
+        "Surprised": 0.5
+      },
+      "narrative_function": "Chegada em Whitefall - início do isolamento",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 21,
+      "scene_type": "realization",
+      "act": 3,
+      "text": "A estação de ônibus era caos. Setenta pessoas dentro, e não era tão grande por dentro quanto parecia por fora. Todo mundo gritando, pessoas se estranhando, um bebê gritando do outro lado da sala. Procurei no quadro o Ônibus 414. Do lado dele, onde deveria estar o número da porta, não havia nada. Estava em branco. Na verdade... estavam TODOS em branco.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Surprised": 0.9,
+        "Afraid": 0.7,
+        "Angry": 0.4
+      },
+      "narrative_function": "Descoberta - todos os ônibus cancelados",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 22,
+      "scene_type": "despair",
+      "act": 3,
+      "text": "Ônibus cancelados. Todos eles, disse um cara. A tempestade é muito forte. Mack ficou vermelho. Tenho uma conexão para fazer! Preciso chegar a Post Falls! Alguém está me esperando às 21h. Prometi 21h. Não posso me atrasar. Mas não havia ninguém para reclamar. Nenhum funcionário da estação. Nenhum motorista. Apenas nós, presos.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.8,
+        "Angry": 0.7,
+        "Sad": 0.6
+      },
+      "narrative_function": "Primeira onda de desespero",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 23,
+      "scene_type": "phone_call",
+      "act": 3,
+      "text": "Tentei ligar para Mel. A conexão estava péssima. Consegui ouvir cerca de 70% de tudo que ela disse. Pedi desculpas por Minneapolis. Disse a ela que parecia que haveria um atraso chegando em Spokane. Que eu estava preso em uma nevasca em Dakota do Norte. Lembra de Nova York quatro anos atrás? Ela disse. Tipo isso, respondi. Mas pior. A ligação caiu. Gastei minha última moeda tentando ligar de volta. Nada.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Sad": 0.9,
+        "Afraid": 0.7,
+        "Melancholic": 0.8
+      },
+      "narrative_function": "Perda de comunicação - isolamento total",
+      "duration_estimate": "25s"
+    },
+    {
+      "segment_number": 24,
+      "scene_type": "announcement",
+      "act": 3,
+      "text": "Boa tarde, pessoal. Este é o mestre da estação falando em nome de seus motoristas e da Companhia Greyloor. Tenho certeza de que todos vocês estão muito ansiosos para embarcar em seus ônibus. Lamentamos informar que a tempestade não deve diminuir até esta noite. Para sua segurança, por favor não tentem deixar a estação. Os ventos estão na faixa de 105 km por hora e a visibilidade é zero.",
+      "voice": "HAL 9000 CC3.wav",
+      "emotions": {
+        "Calm": 1.2,
+        "Melancholic": 0.3
+      },
+      "narrative_function": "Anúncio oficial - voz institucional fria",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 25,
+      "scene_type": "first_night",
+      "act": 3,
+      "text": "A primeira noite foi longa. As máquinas de venda tinham comida, mas mal o suficiente para alimentar 70 pessoas por um dia inteiro extra. A que usei na noite anterior já estava quase vazia. Comi PopTarts e peixinhos dourados. Tentei ligar para Mel de novo e troquei talvez 8 palavras que consegui entender com ela. Dormi por exaustão pura.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Sad": 0.7,
+        "Melancholic": 0.9,
+        "Calm": 0.4
+      },
+      "narrative_function": "Primeira noite - estabelecer rotina de sobrevivência",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 26,
+      "scene_type": "deterioration",
+      "act": 3,
+      "text": "No segundo dia, as coisas ficaram terríveis. Havíamos esperado o dia todo para ouvir sobre a tempestade e nossos ônibus, mas ninguém apareceu nas bilheterias e ninguém nos dirigiu pelo alto-falante. Por volta das 18h, assisti o estranho na camisa dos Chiefs bater na porta dos funcionários com outros caras. Tentaram gritar, chutar a porta. Nada quebrou. Já haviam se passado mais de 24 horas que estávamos presos aqui.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.9,
+        "Angry": 0.7,
+        "Disgusted": 0.5
+      },
+      "narrative_function": "Escalada da tensão - funcionários invisíveis",
+      "duration_estimate": "24s"
+    },
+    {
+      "segment_number": 27,
+      "scene_type": "breaking_point",
+      "act": 3,
+      "text": "O bebê gritava de algum lugar. Um homem brigou com outro pelo último moonpie na máquina de vendas. Pessoas frustradas tentavam os telefones. Este lugar tem um ponto de ruptura, disse a Dillon, e vamos atingi-lo amanhã à noite. Você dá tanto tempo assim?, ele perguntou. Se não ouvirmos algo pelo alto-falante antes disso, sim.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.8,
+        "Angry": 0.6,
+        "Melancholic": 0.7
+      },
+      "narrative_function": "Tensão crescente - ponto de ruptura iminente",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 28,
+      "scene_type": "third_day",
+      "act": 3,
+      "text": "Terceiro dia. Dormi das 22h às 8h e só acordei com gritos. Um homem estava tentando deixar a estação e duas pessoas que eu reconheci, o pai e a filha que conheci dois dias antes, estavam tentando impedi-lo. Andy, não!, Emily Pollock gritou. Você vai morrer lá fora! Eu não posso ficar mais aqui, ele disse. Não posso.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 1.0,
+        "Surprised": 0.7,
+        "Sad": 0.6
+      },
+      "narrative_function": "Terceiro dia - primeiro escape attempt",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 29,
+      "scene_type": "the_tunnel",
+      "act": 3,
+      "text": "Ele se soltou de Emily, abriu a porta e saiu correndo. Eu estava de pé em segundos. Como ele passou pelas montanhas de neve? Abri a porta e me vi olhando para um longo corredor estreito de neve, tão alto dos dois lados que mal conseguia ver o topo. A passagem ia tão longe que achei que a tinha perdido até avistar a figura escura de um homem se apressando. Quem cavou esse caminho?",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Surprised": 1.1,
+        "Afraid": 1.0,
+        "Melancholic": 0.5
+      },
+      "narrative_function": "Descoberta do túnel de neve - elemento sobrenatural",
+      "duration_estimate": "22s"
+    },
+    {
+      "segment_number": 30,
+      "scene_type": "revelation",
+      "act": 3,
+      "text": "Fui puxado para trás e a porta bateu na minha cara. Emily Pollock estava lá me encarando. Seu idiota, já é ruim o suficiente ele ter saído. Quem cavou aquele caminho?, perguntei. Quem se importa?, ela respondeu. Não leva a lugar nenhum. Mandamos uma garota ontem à noite para ver se conseguia encontrar ajuda e ela nunca voltou.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Surprised": 0.9,
+        "Afraid": 0.9,
+        "Angry": 0.6
+      },
+      "narrative_function": "Revelação - pessoas desaparecendo",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 31,
+      "scene_type": "groups",
+      "act": 3,
+      "text": "Olhe ao redor, Mack disse. Vê como esta estação está dividida? Por ônibus, respondeu Dillon. Ali, o cara da camisa dos Chiefs. Esse grupo veio do ônibus de Kansas City. E ali, aquele pai e filha. Todo aquele grupo é de Denver. Éramos estranhos divididos por linhas invisíveis. Minneapolis. Kansas City. Denver. Salt Lake City. Tribos formadas por acidente de geografia.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.7,
+        "Melancholic": 0.8,
+        "Surprised": 0.5
+      },
+      "narrative_function": "Descoberta da divisão tribal",
+      "duration_estimate": "24s"
+    },
+    {
+      "segment_number": 32,
+      "scene_type": "tension",
+      "act": 3,
+      "text": "Já leram O Senhor das Moscas?, Mack perguntou. Não, respondi. Bem, disse ele, é sobre crianças presas em uma ilha que começam a formar tribos. Competem por recursos. Brigam. Matam. Olhei ao redor da estação. Víamos isso acontecendo. Em tempo real. E não tínhamos como parar.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 1.1,
+        "Melancholic": 0.9,
+        "Disgusted": 0.6
+      },
+      "narrative_function": "Paralelo literário - prenúncio do caos",
+      "duration_estimate": "20s"
+    },
+    {
+      "segment_number": 33,
+      "scene_type": "resources",
+      "act": 3,
+      "text": "Ele era um enfermeiro. Ela precisava dele, disse Acker sobre o homem que fugiu. Precisava dele para quê? Alguém está doente? Emily riu. Todo mundo está doente, ou vai ficar em breve. Este é nosso terceiro dia aqui sem contato com o mundo exterior. As máquinas de venda estão praticamente vazias. O banheiro feminino transbordou. Se não encontrarmos uma maneira de sair ou conseguir ajuda, todos vamos morrer de fome.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 1.2,
+        "Disgusted": 0.8,
+        "Sad": 0.7
+      },
+      "narrative_function": "Revelação da situação crítica",
+      "duration_estimate": "24s"
+    },
+    {
+      "segment_number": 34,
+      "scene_type": "reflection",
+      "act": 3,
+      "text": "Sentei ali naquela cadeira plástica dura e pensei em Mel. Ela estava grávida. Trabalhando turnos duplos no Freddy's. Economizando cada centavo para vir me encontrar em Spokane. E eu estava preso em Whitefall, Dakota do Norte. Numa estação de ônibus sem saída. Com uma nevasca impossível lá fora. E um túnel de neve que levava a lugar nenhum. Ou pior... que levava para algum lugar.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Melancholic": 1.2,
+        "Sad": 1.0,
+        "Afraid": 0.8
+      },
+      "narrative_function": "Momento de reflexão pessoal",
+      "duration_estimate": "24s"
+    },
+    {
+      "segment_number": 35,
+      "scene_type": "horror_realization",
+      "act": 3,
+      "text": "Porque aqui estava a verdade que todos nós sabíamos mas ninguém dizia em voz alta: A tempestade lá fora não era natural. O túnel não foi cavado por mãos humanas. As pessoas que desapareceram... não estavam mortas de frio. E os funcionários da estação? Nunca existiram. Whitefall não era uma estação de ônibus. Era uma armadilha. E nós havíamos caído nela.",
+      "voice": "Freddy Krueger CC3.wav",
+      "emotions": {
+        "Afraid": 1.2,
+        "Disgusted": 1.0,
+        "Angry": 0.7
+      },
+      "narrative_function": "Revelação do horror - twist sobrenatural",
+      "duration_estimate": "24s"
+    }
+  ],
+  "production_notes": {
+    "pacing": "Iniciar devagar e contemplativo (segmentos 1-7), acelerar durante a jornada (8-19), desacelerar para tensão crescente (20-35)",
+    "vocal_direction": "Morgan Freeman deve manter tom nostálgico e cansado nos primeiros segmentos, ganhar urgência nos segmentos de ação, e profundo desespero nos finais",
+    "music_suggestions": "Ambient drone para Whitefall scenes, silêncio nos momentos de Mel, crescendo orquestral para revelações",
+    "sound_effects": "Vento de nevasca (constante low no fundo dos segmentos 20-35), porta de ônibus, telefone tocando/desconectando, bebê chorando (distante)",
+    "emotional_arc": "Melancolia → Esperança (descoberta da gravidez) → Determinação (viagem) → Medo crescente (Whitefall) → Horror (revelação final)",
+    "total_segments_in_complete_story": 35,
+    "estimated_full_duration": "approximately 45-50 minutes"
+  }
+}

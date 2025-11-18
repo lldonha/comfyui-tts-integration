@@ -1,0 +1,139 @@
+{
+  "title": "Whitefall - Episódio 2: A Jornada",
+  "episode": 2,
+  "total_episodes": 3,
+  "genre": "suspense psicológico / terror atmosférico",
+  "batch_id": "whitefall_ep2",
+  "segments": [
+    {
+      "segment_number": 13,
+      "scene_type": "journey_begins",
+      "text": "O ônibus começou a se afastar da estação. Mel acenou para mim. Ainda estava chorando, mas parecia em paz. Porque ela acreditava em mim. Íamos garantir que tudo ficasse bem. Assisti ela até virarmos na 19th Street. Não estava deixando ela para trás. Éramos uma equipe.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Melancholic": 0.8,
+        "Happy": 0.5,
+        "Calm": 0.7
+      }
+    },
+    {
+      "segment_number": 14,
+      "scene_type": "conflict_intro",
+      "text": "Estávamos 11 minutos atrasados, sabem. A voz veio de trás. Era o Viajante Cansado, sentado em sua cadeira e olhando por cima dela. Ele tinha que ter uns 60 anos. Cabelo interessante de marrom e cinza, roupas gritando trabalhador braçal. Tenho uma conexão para fazer, disse ele. É melhor que eu não perca por sua causa.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Angry": 0.5,
+        "Disgusted": 0.4,
+        "Calm": 0.3
+      }
+    },
+    {
+      "segment_number": 15,
+      "scene_type": "character_intro",
+      "text": "Ao longo da viagem, conheci outros passageiros. A Fugitiva - uma garota nervosa que claramente estava fugindo de alguém. O Artista Esguio que desenhava montanhas para sua namorada. E o Viajante Cansado que eu viria a conhecer como Mack. Todos indo para o mesmo lugar que eu. Todos presos nessa jornada juntos.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Calm": 0.7,
+        "Melancholic": 0.5
+      }
+    },
+    {
+      "segment_number": 16,
+      "scene_type": "bonding",
+      "text": "Dei meu último maço de cigarros para a Fugitiva. Acabei de descobrir que vou ser pai em tipo... 8 meses. Quero parar de qualquer jeito, disse a ela. Ela me deu M&Ms de peanut. Dividimos comida. Mack compartilhou seu jerky. Dillon me mostrou seus desenhos. A Fugitiva, que se chamava Gracie, começou a sorrir. Éramos estranhos virando... algo mais.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Happy": 0.6,
+        "Calm": 0.8,
+        "Melancholic": 0.3
+      }
+    },
+    {
+      "segment_number": 17,
+      "scene_type": "danger",
+      "text": "Então Scraggle entrou no ônibus. Esfarrapado, nervoso, coçando, possivelmente chapado de algo. Fedorento. E seus olhos se fixaram em Gracie. Era claro como o dia o que ele estava procurando. Mack sentou ao lado dela. Eu fiquei de guarda. Dillon também. Protegeríamos ela.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.7,
+        "Angry": 0.6,
+        "Disgusted": 0.8
+      }
+    },
+    {
+      "segment_number": 18,
+      "scene_type": "confrontation",
+      "text": "Não toque em mim! Gracie gritou quando Scraggle tentou tocá-la enquanto dormia. Mack estava na cara dele. Você não toca em mulheres sem permissão. Scraggle riu e ficou violento. Bateu em Dillon. Chutou Mack. Até que eu o agarrei pela camisa e o arrastei pelo corredor. Você está saindo do ônibus, eu disse.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Angry": 1.0,
+        "Afraid": 0.5,
+        "Disgusted": 0.7
+      }
+    },
+    {
+      "segment_number": 19,
+      "scene_type": "transition",
+      "text": "Depois disso, éramos mais do que estranhos. Mack, Dillon, Gracie e eu. Éramos um grupo. Uma equipe. Trocamos nomes reais. Compartilhamos histórias. Mack ia para Post Falls ver alguém importante. Dillon ia para Casper encontrar Sarah. Gracie ia para Billings começar de novo. E eu ia para Spokane construir um futuro para minha família.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Calm": 0.8,
+        "Happy": 0.6,
+        "Melancholic": 0.4
+      }
+    },
+    {
+      "segment_number": 20,
+      "scene_type": "arrival",
+      "text": "A neve começou logo depois que cruzamos a fronteira de Dakota do Norte. Primeiro flocos suaves, depois uma rajada, e finalmente um branco total. Eu não tinha ideia de como o motorista conseguia ver através disso. E foi assim que chegamos em Whitefall. No meio de uma nevasca. No meio do nada. Sem saber que nunca sairíamos.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.8,
+        "Melancholic": 0.9,
+        "Surprised": 0.5
+      }
+    },
+    {
+      "segment_number": 21,
+      "scene_type": "realization",
+      "text": "A estação de ônibus era caos. Setenta pessoas dentro, e não era tão grande por dentro quanto parecia por fora. Todo mundo gritando, pessoas se estranhando, um bebê gritando do outro lado da sala. Procurei no quadro o Ônibus 414. Do lado dele, onde deveria estar o número da porta, não havia nada. Estava em branco. Na verdade... estavam TODOS em branco.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Surprised": 0.9,
+        "Afraid": 0.7,
+        "Angry": 0.4
+      }
+    },
+    {
+      "segment_number": 22,
+      "scene_type": "despair",
+      "text": "Ônibus cancelados. Todos eles, disse um cara. A tempestade é muito forte. Mack ficou vermelho. Tenho uma conexão para fazer! Preciso chegar a Post Falls! Alguém está me esperando às 21h. Prometi 21h. Não posso me atrasar. Mas não havia ninguém para reclamar. Nenhum funcionário da estação. Nenhum motorista. Apenas nós, presos.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.8,
+        "Angry": 0.7,
+        "Sad": 0.6
+      }
+    },
+    {
+      "segment_number": 23,
+      "scene_type": "phone_call",
+      "text": "Tentei ligar para Mel. A conexão estava péssima. Consegui ouvir cerca de 70% de tudo que ela disse. Pedi desculpas por Minneapolis. Disse a ela que parecia que haveria um atraso chegando em Spokane. Que eu estava preso em uma nevasca em Dakota do Norte. Lembra de Nova York quatro anos atrás? Ela disse. Tipo isso, respondi. Mas pior. A ligação caiu. Gastei minha última moeda tentando ligar de volta. Nada.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Sad": 0.9,
+        "Afraid": 0.7,
+        "Melancholic": 0.8
+      }
+    },
+    {
+      "segment_number": 24,
+      "scene_type": "announcement",
+      "text": "Boa tarde, pessoal. Este é o mestre da estação falando em nome de seus motoristas e da Companhia Greyloor. Tenho certeza de que todos vocês estão muito ansiosos para embarcar em seus ônibus. Lamentamos informar que a tempestade não deve diminuir até esta noite. Para sua segurança, por favor não tentem deixar a estação. Os ventos estão na faixa de 105 km por hora e a visibilidade é zero.",
+      "voice": "HAL 9000 CC3.wav",
+      "emotions": {
+        "Calm": 1.2,
+        "Melancholic": 0.3
+      }
+    }
+  ]
+}

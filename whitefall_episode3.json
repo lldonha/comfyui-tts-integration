@@ -1,0 +1,130 @@
+{
+  "title": "Whitefall - Episódio 3: O Isolamento",
+  "episode": 3,
+  "total_episodes": 3,
+  "genre": "suspense psicológico / terror atmosférico",
+  "batch_id": "whitefall_ep3",
+  "segments": [
+    {
+      "segment_number": 25,
+      "scene_type": "first_night",
+      "text": "A primeira noite foi longa. As máquinas de venda tinham comida, mas mal o suficiente para alimentar 70 pessoas por um dia inteiro extra. A que usei na noite anterior já estava quase vazia. Comi PopTarts e peixinhos dourados. Tentei ligar para Mel de novo e troquei talvez 8 palavras que consegui entender com ela. Dormi por exaustão pura.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Sad": 0.7,
+        "Melancholic": 0.9,
+        "Calm": 0.4
+      }
+    },
+    {
+      "segment_number": 26,
+      "scene_type": "deterioration",
+      "text": "No segundo dia, as coisas ficaram terríveis. Havíamos esperado o dia todo para ouvir sobre a tempestade e nossos ônibus, mas ninguém apareceu nas bilheterias e ninguém nos dirigiu pelo alto-falante. Por volta das 18h, assisti o estranho na camisa dos Chiefs bater na porta dos funcionários com outros caras. Tentaram gritar, chutar a porta. Nada quebrou. Já haviam se passado mais de 24 horas que estávamos presos aqui.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.9,
+        "Angry": 0.7,
+        "Disgusted": 0.5
+      }
+    },
+    {
+      "segment_number": 27,
+      "scene_type": "breaking_point",
+      "text": "O bebê gritava de algum lugar. Um homem brigou com outro pelo último moonpie na máquina de vendas. Pessoas frustradas tentavam os telefones. Este lugar tem um ponto de ruptura, disse a Dillon, e vamos atingi-lo amanhã à noite. Você dá tanto tempo assim?, ele perguntou. Se não ouvirmos algo pelo alto-falante antes disso, sim.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.8,
+        "Angry": 0.6,
+        "Melancholic": 0.7
+      }
+    },
+    {
+      "segment_number": 28,
+      "scene_type": "third_day",
+      "text": "Terceiro dia. Dormi das 22h às 8h e só acordei com gritos. Um homem estava tentando deixar a estação e duas pessoas que eu reconheci, o pai e a filha que conheci dois dias antes, estavam tentando impedi-lo. Andy, não!, Emily Pollock gritou. Você vai morrer lá fora! Eu não posso ficar mais aqui, ele disse. Não posso.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 1.0,
+        "Surprised": 0.7,
+        "Sad": 0.6
+      }
+    },
+    {
+      "segment_number": 29,
+      "scene_type": "the_tunnel",
+      "text": "Ele se soltou de Emily, abriu a porta e saiu correndo. Eu estava de pé em segundos. Como ele passou pelas montanhas de neve? Abri a porta e me vi olhando para um longo corredor estreito de neve, tão alto dos dois lados que mal conseguia ver o topo. A passagem ia tão longe que achei que a tinha perdido até avistar a figura escura de um homem se apressando. Quem cavou esse caminho?",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Surprised": 1.1,
+        "Afraid": 1.0,
+        "Melancholic": 0.5
+      }
+    },
+    {
+      "segment_number": 30,
+      "scene_type": "revelation",
+      "text": "Fui puxado para trás e a porta bateu na minha cara. Emily Pollock estava lá me encarando. Seu idiota, já é ruim o suficiente ele ter saído. Quem cavou aquele caminho?, perguntei. Quem se importa?, ela respondeu. Não leva a lugar nenhum. Mandamos uma garota ontem à noite para ver se conseguia encontrar ajuda e ela nunca voltou.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Surprised": 0.9,
+        "Afraid": 0.9,
+        "Angry": 0.6
+      }
+    },
+    {
+      "segment_number": 31,
+      "scene_type": "groups",
+      "text": "Olhe ao redor, Mack disse. Vê como esta estação está dividida? Por ônibus, respondeu Dillon. Ali, o cara da camisa dos Chiefs. Esse grupo veio do ônibus de Kansas City. E ali, aquele pai e filha. Todo aquele grupo é de Denver. Éramos estranhos divididos por linhas invisíveis. Minneapolis. Kansas City. Denver. Salt Lake City. Tribos formadas por acidente de geografia.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 0.7,
+        "Melancholic": 0.8,
+        "Surprised": 0.5
+      }
+    },
+    {
+      "segment_number": 32,
+      "scene_type": "tension",
+      "text": "Já leram O Senhor das Moscas?, Mack perguntou. Não, respondi. Bem, disse ele, é sobre crianças presas em uma ilha que começam a formar tribos. Competem por recursos. Brigam. Matam. Olhei ao redor da estação. Víamos isso acontecendo. Em tempo real. E não tínhamos como parar.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 1.1,
+        "Melancholic": 0.9,
+        "Disgusted": 0.6
+      }
+    },
+    {
+      "segment_number": 33,
+      "scene_type": "resources",
+      "text": "Ele era um enfermeiro. Ela precisava dele, disse Acker sobre o homem que fugiu. Precisava dele para quê? Alguém está doente? Emily riu. Todo mundo está doente, ou vai ficar em breve. Este é nosso terceiro dia aqui sem contato com o mundo exterior. As máquinas de venda estão praticamente vazias. O banheiro feminino transbordou. Se não encontrarmos uma maneira de sair ou conseguir ajuda, todos vamos morrer de fome.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Afraid": 1.2,
+        "Disgusted": 0.8,
+        "Sad": 0.7
+      }
+    },
+    {
+      "segment_number": 34,
+      "scene_type": "reflection",
+      "text": "Sentei ali naquela cadeira plástica dura e pensei em Mel. Ela estava grávida. Trabalhando turnos duplos no Freddy's. Economizando cada centavo para vir me encontrar em Spokane. E eu estava preso em Whitefall, Dakota do Norte. Numa estação de ônibus sem saída. Com uma nevasca impossível lá fora. E um túnel de neve que levava a lugar nenhum. Ou pior... que levava para algum lugar.",
+      "voice": "Morgan_Freeman CC3.wav",
+      "emotions": {
+        "Melancholic": 1.2,
+        "Sad": 1.0,
+        "Afraid": 0.8
+      }
+    },
+    {
+      "segment_number": 35,
+      "scene_type": "horror_realization",
+      "text": "Porque aqui estava a verdade que todos nós sabíamos mas ninguém dizia em voz alta: A tempestade lá fora não era natural. O túnel não foi cavado por mãos humanas. As pessoas que desapareceram... não estavam mortas de frio. E os funcionários da estação? Nunca existiram. Whitefall não era uma estação de ônibus. Era uma armadilha. E nós havíamos caído nela.",
+      "voice": "Freddy Krueger CC3.wav",
+      "emotions": {
+        "Afraid": 1.2,
+        "Disgusted": 1.0,
+        "Angry": 0.7
+      }
+    }
+  ]
+}
